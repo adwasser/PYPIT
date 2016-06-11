@@ -123,14 +123,19 @@ Here are some hacks to make the anaconda installation work as well as some alter
 	 
 
 **2) Disable System Integrity Protection**
-
+p
 This is a last resort solution and we do not recommend it due to security concerns. Instructions for how to do this can be found `here <https://www.quora.com/How-do-I-turn-off-the-rootless-in-OS-X-El-Capitan-10-11/>`_. 
 
 
 **3) Install GSL with Homebrew instead of Anaconda**
 
-Since Homebrew installs programs in /usr/local , which is not SIP protected, this should work without additional hacks. 
-ASHER CAN YOU WRITE UP SOME INSTRUCTIONS FOR THE HOMEBREW INSTALLATION OF GSL?
+Since `Homebrew <http://brew.sh/>`_ installs programs in /usr/local , which is not SIP protected, this should work without additional hacks.::
+
+  brew install gsl
+
+in which case the ``GSL_PATH`` variable should be set to ``/usr/local/Cellar/gsl/1.16/``, where ``1.16`` might have to
+be replaced with whatever version number you have installed.
+
 
 
 Installing PYPIT
@@ -152,6 +157,7 @@ or::
 	python setup.py install
 
 This should compile all the necessary Cython files, etc.
+
 
 Tests
 =====
